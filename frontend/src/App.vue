@@ -34,7 +34,7 @@ async function runNetworkAnalysis() {
   result.value = ''
 
   try {
-    const response = await fetch('http://localhost:8000/api/network/analyze', {
+    const response = await fetch('http://omnitex-python-fastapi-service.onrender.com:8000/api/network/analyze', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
