@@ -1,29 +1,32 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 
-app = FastAPI(title="Unified Polyglot Dashboard API")
+app = FastAPI(
+    title="OMNITEX Python FastAPI Service",
+    version="1.0.0",
+)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://omnitex.vercel.app:5173",
-        "https://omnitex.vercel.app:5173",
+        "https://omnitex.vercel.app",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
     ],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
-class NetworkAnalysisResponse(BaseModel):
-    status: str
-    message: str
-
-
-@app.get("/api/network/analyze", response_model=NetworkAnalysisResponse)
+@app.get("/network/analyze")
 async def analyze():
     return {
-        "status": "ok",
-        "message": "analysis complete",
+        "status": "analysis complete",
+        "message": "Network analysis finished successfully.",
+        "service": "omnitex-python-fastapi-service",
+        "endpoint": "/network/analyze",
     }
+
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
