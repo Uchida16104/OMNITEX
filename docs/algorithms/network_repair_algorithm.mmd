@@ -1,0 +1,6 @@
+flowchart TD
+  A[Detect Failure] --> B[Analyze Network]
+  B --> C{Problem Found?}
+  C -->|Yes| D[Repair Configuration]
+  C -->|No| E[Log Diagnostic]
+  D --> F[Re-test Connection]
