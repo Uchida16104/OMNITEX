@@ -1,0 +1,7 @@
+graph TD
+  Browser --> VueFrontend
+  VueFrontend --> LaravelAPI
+  LaravelAPI --> RustService
+  LaravelAPI --> FastAPIService
+  LaravelAPI --> ASPNETService
+  RustService --> NetworkScanner
