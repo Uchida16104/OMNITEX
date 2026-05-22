@@ -1,0 +1,13 @@
+{
+  "name": "polyglot-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.0.0",
+    "alpinejs": "^3.0.0",
+    "htmx.org": "^2.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+
+services:
+  - type: web
+    name: laravel-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+
+  - type: web
+    name: rust-network-service
+    env: docker
+    dockerfilePath: ./services/rust/Dockerfile
+
+  - type: web
+    name: python-fastapi-service
+    env: docker
+    dockerfilePath: ./services/python/fastapi/Dockerfile
