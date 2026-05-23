@@ -1,13 +1,14 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | View Paths
     |--------------------------------------------------------------------------
     |
-    | Here you may specify a list of paths that should be checked for your
-    | views. By default, Laravel checks the resources/views directory.
+    | Here you may specify which view paths should be checked for your views.
+    | Laravel will search in these directories for your Blade templates.
     |
     */
 
@@ -20,23 +21,22 @@ return [
     | Compiled View Path
     |--------------------------------------------------------------------------
     |
-    | This is where all compiled Blade templates will be stored.
-    | The directory must exist and be writable.
+    | This option determines where all compiled Blade templates are stored.
+    | The fallback keeps the path valid even if realpath() returns false.
     |
     */
 
     'compiled' => env(
         'VIEW_COMPILED_PATH',
-        storage_path('framework/views')
+        realpath(storage_path('framework/views')) ?: storage_path('framework/views')
     ),
 
     /*
     |--------------------------------------------------------------------------
-    | Relative Hashing
+    | Relative Hash
     |--------------------------------------------------------------------------
     |
-    | When enabled, compiled view filenames are generated using a hash based
-    | on the absolute path to the view file.
+    | When enabled, compiled views use a path relative to the application base.
     |
     */
 
@@ -47,7 +47,7 @@ return [
     | View Cache
     |--------------------------------------------------------------------------
     |
-    | Determines whether Blade compiled views should be cached.
+    | This controls whether Blade compilation is cached.
     |
     */
 
@@ -58,9 +58,9 @@ return [
     | Compiled Extension
     |--------------------------------------------------------------------------
     |
-    | The file extension used for compiled Blade views.
+    | This is the extension used for compiled Blade files.
     |
     */
 
-    'compiled_extension' => 'php',
+    'compiled_extension' => env('VIEW_COMPILED_EXTENSION', 'php'),
 ];
