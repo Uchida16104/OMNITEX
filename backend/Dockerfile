@@ -26,10 +26,24 @@ RUN mkdir -p \
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader
 
-RUN CACHE_STORE=file php artisan config:clear \
-    && CACHE_STORE=file php artisan cache:clear \
-    && CACHE_STORE=file php artisan view:clear
+RUN if [ ! -f .env ]; then cp .env.example .env || touch .env; fi
+
+RUN printf '%s\n' \
+'#!/bin/sh' \
+'' \
+'if ! grep -q "^APP_KEY=" .env || grep -q "^APP_KEY=$" .env; then' \
+'  php artisan key:generate --force' \
+'fi' \
+'' \
+'php artisan config:clear || true' \
+'php artisan cache:clear || true' \
+'php artisan view:clear || true' \
+'' \
+'exec php -S 0.0.0.0:${PORT:-10000} -t public' \
+> /start.sh
+
+RUN chmod +x /start.sh
 
 EXPOSE 10000
 
-CMD php -S 0.0.0.0:${PORT:-10000} -t public
+CMD ["/start.sh"]
