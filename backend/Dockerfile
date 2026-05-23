@@ -15,6 +15,10 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
+RUN mkdir -p bootstrap/cache storage \
+    && chown -R www-data:www-data bootstrap/cache storage \
+    && chmod -R 775 bootstrap/cache storage
+
 RUN composer install --no-interaction --no-dev --optimize-autoloader
 
 EXPOSE 10000
