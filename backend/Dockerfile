@@ -15,11 +15,20 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
-RUN mkdir -p bootstrap/cache storage \
+RUN mkdir -p \
+        bootstrap/cache \
+        storage/framework/views \
+        storage/framework/cache \
+        storage/framework/sessions \
+        storage/logs \
     && chown -R www-data:www-data bootstrap/cache storage \
     && chmod -R 775 bootstrap/cache storage
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader
+
+RUN php artisan config:clear \
+    && php artisan cache:clear \
+    && php artisan view:clear
 
 EXPOSE 10000
 
