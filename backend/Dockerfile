@@ -26,9 +26,9 @@ RUN mkdir -p \
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader
 
-RUN php artisan config:clear \
-    && php artisan cache:clear \
-    && php artisan view:clear
+RUN CACHE_STORE=file php artisan config:clear \
+    && CACHE_STORE=file php artisan cache:clear \
+    && CACHE_STORE=file php artisan view:clear
 
 EXPOSE 10000
 
