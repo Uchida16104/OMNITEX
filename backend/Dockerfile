@@ -30,13 +30,18 @@ RUN if [ ! -f .env ]; then cp .env.example .env || touch .env; fi
 
 RUN printf '%s\n' \
 '#!/bin/sh' \
+'set -e' \
 '' \
-'if ! grep -q "^APP_KEY=" .env || grep -q "^APP_KEY=$" .env; then' \
+'if [ ! -f .env ]; then' \
+'  cp .env.example .env 2>/dev/null || touch .env' \
+'fi' \
+'' \
+'if ! grep -q "^APP_KEY=base64:" .env 2>/dev/null; then' \
 '  php artisan key:generate --force' \
 'fi' \
 '' \
-'php artisan config:clear || true' \
-'php artisan cache:clear || true' \
+'CACHE_STORE="${CACHE_STORE:-file}" php artisan config:clear || true' \
+'CACHE_STORE="${CACHE_STORE:-file}" php artisan cache:clear || true' \
 'php artisan view:clear || true' \
 '' \
 'exec php -S 0.0.0.0:${PORT:-10000} -t public' \
