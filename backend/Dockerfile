@@ -24,27 +24,17 @@ RUN mkdir -p \
     && chown -R www-data:www-data bootstrap/cache storage \
     && chmod -R 775 bootstrap/cache storage
 
-RUN composer install --no-interaction --no-dev --optimize-autoloader
-
-RUN if [ ! -f .env ]; then cp .env.example .env || touch .env; fi
+RUN composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader
 
 RUN printf '%s\n' \
 '#!/bin/sh' \
 'set -e' \
 '' \
-'if [ ! -f .env ]; then' \
-'  cp .env.example .env 2>/dev/null || touch .env' \
-'fi' \
-'' \
-'if ! grep -q "^APP_KEY=base64:" .env 2>/dev/null; then' \
-'  php artisan key:generate --force' \
-'fi' \
-'' \
-'CACHE_STORE="${CACHE_STORE:-file}" php artisan config:clear || true' \
-'CACHE_STORE="${CACHE_STORE:-file}" php artisan cache:clear || true' \
+'php artisan config:clear || true' \
+'php artisan cache:clear || true' \
 'php artisan view:clear || true' \
 '' \
-'exec php -S 0.0.0.0:${PORT:-10000} -t public' \
+'exec php artisan serve --host=0.0.0.0 --port="${PORT:-10000}"' \
 > /start.sh
 
 RUN chmod +x /start.sh
