@@ -15,6 +15,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
+RUN rm -f bootstrap/cache/packages.php bootstrap/cache/services.php
+
 RUN mkdir -p \
         bootstrap/cache \
         storage/framework/views \
@@ -26,7 +28,7 @@ RUN mkdir -p \
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader
 
-RUN if [ ! -f .env ]; then cp .env.example .env || touch .env; fi
+RUN if [ ! -f .env ]; then cp .env.example .env 2>/dev/null || touch .env; fi
 
 RUN printf '%s\n' \
 '#!/bin/sh' \
