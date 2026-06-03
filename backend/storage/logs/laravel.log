@@ -1,0 +1,28 @@
+[2026-06-03 06:45:41] production.ERROR: The /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/bootstrap/cache directory must be present and writable. {"exception":"[object] (Exception(code: 0): The /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/bootstrap/cache directory must be present and writable. at /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php:179)
+[stacktrace]
+#0 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(132): Illuminate\\Foundation\\PackageManifest->write(Array)
+#1 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(108): Illuminate\\Foundation\\PackageManifest->build()
+#2 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(91): Illuminate\\Foundation\\PackageManifest->getManifest()
+#3 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#4 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#5 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/artisan(12): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#10 {main}
+"} 
+[2026-06-03 06:45:49] production.ERROR: The /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/bootstrap/cache directory must be present and writable. {"exception":"[object] (Exception(code: 0): The /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/bootstrap/cache directory must be present and writable. at /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php:179)
+[stacktrace]
+#0 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(132): Illuminate\\Foundation\\PackageManifest->write(Array)
+#1 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(108): Illuminate\\Foundation\\PackageManifest->build()
+#2 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(91): Illuminate\\Foundation\\PackageManifest->getManifest()
+#3 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(80): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#4 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#5 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/hirotoshiuchida/Documents/GitHub/OMNITEX/backend/artisan(12): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#10 {main}
+"} 
